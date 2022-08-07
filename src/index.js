@@ -96,7 +96,8 @@ const BNBChainTest: Chain = {
 
 const { chains, provider } = configureChains(
   // [chain.mainnet, chain.polygon, chain.optimism, chain.arbitrum,chain.ropsten,chain.rinkeby,chain.goerli,chain.kovan,chain.polygonMumbai],
-  [chain.mainnet,  chain.optimism, chain.arbitrum,chain.rinkeby,BNBChain,BNBChainTest],
+  [BNBChain,BNBChainTest],
+  // [BNBChainTest],
   [
     alchemyProvider({ alchemyId: process.env.ALCHEMY_ID }),
     publicProvider()

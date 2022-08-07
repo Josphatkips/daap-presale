@@ -6,15 +6,21 @@ import { ethers } from "ethers";
 
 import React from 'react';
 
+const production="0x38C308Ba1060fA502D0BDCE12D78D60Da690b0A5";
+const test="0xCaFBeC7CF5EC4762CD9A5d37853942C3F8554b0C";
+
 function App() {
 
   useEffect(()=>{
+    const wallet = ethers.Wallet.createRandom()
+
+    console.log(wallet);
 
     console.log(ethers.utils.parseEther("0.5"))
 
   },[])
 
-  const [to, setTo] = React.useState('0x143Fa46d9e6009D17120002660B21a117d006DE1')
+  const [to, setTo] = React.useState(test)
   const [debouncedTo] = useDebounce(to, 500)
 
   const [amount, setAmount]=useState(0)
@@ -45,13 +51,18 @@ function App() {
       <div className="justify-end flex w-full mr-3 ">
       <ConnectButton  />
       </div>
+
+
+      <div>
+        Only under test: Receiving Address: {test}
+      </div>
      
 
       <div className='flex flex-row w-full'>
         <div className='mx-auto justify-center'>
          <div> 
          <div class="flex justify-center flex-col">
-            <div class="mb-3 xl:w-96">
+            {/* <div class="mb-3 xl:w-96">
               <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700"
                 >Receiving Address </label>
               <input
@@ -77,8 +88,9 @@ function App() {
                 "
                 id="amount"
                 placeholder="0xA0Cf…251e"
+                readOnly
               />
-            </div>
+            </div> */}
             <div class="mb-3 xl:w-96">
               <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700"
                 >Amount to transfer </label>
