@@ -6,8 +6,8 @@ import { ethers } from "ethers";
 
 import React from 'react';
 
-const production="0x38C308Ba1060fA502D0BDCE12D78D60Da690b0A5";
-const test="0xCaFBeC7CF5EC4762CD9A5d37853942C3F8554b0C";
+const test="0x38C308Ba1060fA502D0BDCE12D78D60Da690b0A5";
+// const test="0xCaFBeC7CF5EC4762CD9A5d37853942C3F8554b0C";
 
 function App() {
 
@@ -54,7 +54,7 @@ function App() {
 
 
       <div>
-        Only under test: Receiving Address: {test}
+         Receiving Address: {test}
       </div>
      
 

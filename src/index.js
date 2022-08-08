@@ -19,6 +19,7 @@ import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 
 
+
 // Custom Chain
 
 
@@ -96,7 +97,7 @@ const BNBChainTest: Chain = {
 
 const { chains, provider } = configureChains(
   // [chain.mainnet, chain.polygon, chain.optimism, chain.arbitrum,chain.ropsten,chain.rinkeby,chain.goerli,chain.kovan,chain.polygonMumbai],
-  [BNBChain,BNBChainTest],
+  [BNBChain],
   // [BNBChainTest],
   [
     alchemyProvider({ alchemyId: process.env.ALCHEMY_ID }),
