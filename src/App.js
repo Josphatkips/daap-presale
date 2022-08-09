@@ -52,10 +52,10 @@ function App() {
       <div className='md:pt-20 pt-7'>
       
       <div className='flex flex-row w-full'>
-        <div className='bg-orange-400 rounded-3xl ml-10 p-10 flex flex-col'>
+        <div className='bg-orange-400 rounded-3xl md:ml-10 md:p-10 p-5 md:mx-0 mx-1 flex flex-col'>
 
           <div className='flex flex-row'>
-            <div className='flex flex-col text-3xl font-black text-white'>
+            <div className='flex flex-col md:text-3xl font-black text-white'>
               <div>
                 META OF CLASH
               </div>
@@ -75,7 +75,7 @@ function App() {
 
           </div>
 
-          <div className='flex flex-row'>
+          <div className='flex md:flex-row flex-col'>
             <div className='font-black text-2xl text-cyan-500'>
               $ MOC 100.000
             </div>
@@ -238,7 +238,7 @@ function App() {
       </div>
       <div className='flex flex-row bg-black py-10 justify-between'>
         <div className='flex flex-col'>
-          <div className='text-white text-5xl font-black'>
+          <div className='text-white md:text-5xl text-3xl font-black'>
             META OF CLASH
           </div>
           <div className='font-black text-yellow-500'>
