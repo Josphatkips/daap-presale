@@ -12,20 +12,22 @@ const test="0x38C308Ba1060fA502D0BDCE12D78D60Da690b0A5";
 
 function App() {
 
-  useEffect(()=>{
-    const wallet = ethers.Wallet.createRandom()
+  // useEffect(()=>{
+  //   const wallet = ethers.Wallet.createRandom()
 
-    console.log(wallet);
+  //   console.log(wallet);
 
-    console.log(ethers.utils.parseEther("0.5"))
+  //   console.log(ethers.utils.parseEther("0.5"))
 
-  },[])
+  // },[])
 
   const [to, setTo] = React.useState(test)
   const [debouncedTo] = useDebounce(to, 500)
 
   const [amount, setAmount]=useState(0)
   const [debouncedValue] = useDebounce(amount, 500)
+
+  const [mytokens,setMyTokens]=useState(0)
 
   const { config } = usePrepareSendTransaction({
     request: {
@@ -41,10 +43,20 @@ function App() {
   })
 
   
-  const buyToken=()=>{
-    alert("hello")
-    sendTransaction?.()
+  const getAmount=(amount)=>{
+    // alert(amount)
+    setAmount(amount)
+
+    calculateToken(amount)
+    
    
+  }
+
+  const calculateToken=(amount)=>{
+
+    let tokens=amount*3000
+    setMyTokens(tokens)
+
   }
   return (
     <div className='flex flex-col justify-between w-full h-screen  bg-cover bg-center'  style={{ backgroundImage: `url(${background})` }}>
@@ -54,12 +66,12 @@ function App() {
       <div className='flex flex-row w-full'>
         <div className='bg-orange-400 rounded-3xl md:ml-10 md:p-10 p-5 md:mx-0 mx-1 flex flex-col'>
 
-          <div className='flex flex-row'>
-            <div className='flex flex-col md:text-3xl font-black text-white'>
+          <div className='flex md:flex-row flex-col'>
+            <div className='flex md:flex-col flex-row md:text-3xl text-2xl font-black text-white'>
               <div>
                 META OF CLASH
               </div>
-              <div>
+              <div className='md:ml-0 ml-3'>
                 PRESALE
 
               </div>
@@ -75,12 +87,12 @@ function App() {
 
           </div>
 
-          <div className='flex md:flex-row flex-col'>
-            <div className='font-black text-2xl text-cyan-500'>
+          <div className='flex flex-col'>
+            <div className='font-black text-2xl text-cyan-600'>
               $ MOC 100.000
             </div>
             <div className='text-2xl font-black'>
-              <span className='indigo-500'>1</span> <span className='text-yellow-500'>BNB</span> <span className='text-indigo-600'>= 3000</span> <span className='text-green-600'>$MOC</span>
+              <span className='indigo-500'>1</span> <span className='text-yellow-900'>BNB</span> <span className='text-indigo-600'>= 3000</span> <span className='text-green-600'>$MOC</span>
             </div>
 
           </div>
@@ -96,7 +108,7 @@ function App() {
           </div>
           <div className='flex flex-row justify-between font-black text-white text-3xl bg-black p-3 rounded-full my-3'>
             <div>
-              3000
+              {mytokens}
             </div>
             <div>
               $MOC
@@ -109,7 +121,8 @@ function App() {
             <input
                 type="number"
                 value={amount}
-                onChange={(e)=>setAmount(e.target.value)}
+                // onChange={(e)=>setAmount(e.target.value)}
+                onChange={(e)=>getAmount(e.target.value)}
                 class="
 
                   form-control
@@ -165,73 +178,14 @@ function App() {
             </div>
             {isSuccess && (
               <div>
-                Successfully sent {amount} ether to {to}
-                <div>
+                Successfully sent {amount} BNB to {to}
+                {/* <div>
                   <a href={`https://etherscan.io/tx/${data?.hash}`}>Etherscan</a>
-                </div>
+                </div> */}
               </div>
             )}
         
-         {/* <div>  */}
-         {/* <div class="flex justify-center flex-col">
-            
-            <div class="mb-3 xl:w-96">
-              <label for="exampleFormControlInput1" class="form-label inline-block mb-2 text-gray-700"
-                >Amount to transfer </label>
-              <input
-                type="text"
-                value={amount}
-                onChange={(e)=>setAmount(e.target.value)}
-                class="
-                  form-control
-                  block
-                  w-full
-                  px-3
-                  py-1.5
-                  text-base
-                  font-normal
-                  text-gray-700
-                  bg-white bg-clip-padding
-                  border border-solid border-gray-300
-                  rounded
-                  transition
-                  ease-in-out
-                  m-0
-                  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-                "
-                id="amount"
-                placeholder="Amount to transfer"
-              />
-            </div>
-            <div>
-            <div class="flex space-x-2 justify-center">
-
-            {isLoading ? 
-            <>
-            <button type="button" class="bg-indigo-500 ..." disabled>
-              <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
-              
-              </svg>
-              Sending ...
-            </button>
-            </>
-            :
-            <button onClick={(e)=>sendTransaction?.()} disabled={!sendTransaction || !to || !amount} type="button" class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Buy Token</button>
-            }
-              
-            </div>
-            </div>
-            {isSuccess && (
-              <div>
-                Successfully sent {amount} ether to {to}
-                <div>
-                  <a href={`https://etherscan.io/tx/${data?.hash}`}>Etherscan</a>
-                </div>
-              </div>
-            )}
-          </div>
          
-         </div>  */}
         </div>
 
       </div>
