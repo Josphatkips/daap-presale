@@ -3,7 +3,10 @@ import { useEffect, useState } from 'react';
 import { useDebounce } from 'use-debounce';
 import { usePrepareSendTransaction, useSendTransaction,useWaitForTransaction, } from 'wagmi'
 import { ethers } from "ethers";
-import background from './images/bg.jpg'
+import background from './images/bg.jpeg'
+import Image1 from './images/image_1.png'
+import Image2 from './images/image_2.png'
+import Image3 from './images/image_3.png'
 
 import React from 'react';
 
@@ -54,7 +57,7 @@ function App() {
 
   const calculateToken=(amount)=>{
 
-    let tokens=amount*3000
+    let tokens=amount*22600
     setMyTokens(tokens)
 
   }
@@ -69,12 +72,12 @@ function App() {
           <div className='flex md:flex-row flex-col'>
             <div className='flex md:flex-col flex-row md:text-3xl text-2xl font-black text-white'>
               <div>
-                META OF CLASH
+              BILLIONAIRE FROG
               </div>
-              <div className='md:ml-0 ml-3'>
+              {/* <div className='md:ml-0 ml-3'>
                 PRESALE
 
-              </div>
+              </div> */}
 
               
             </div>
@@ -89,10 +92,10 @@ function App() {
 
           <div className='flex flex-col'>
             <div className='font-black text-2xl text-cyan-600'>
-              $ MOC 100.000
+              $BFROG 350.000
             </div>
-            <div className='text-2xl font-black'>
-              <span className='indigo-500'>1</span> <span className='text-yellow-900'>BNB</span> <span className='text-indigo-600'>= 3000</span> <span className='text-green-600'>$MOC</span>
+            <div className='text-2xl font-black text-indigo-800'>
+              <span className='indigo-500'>1</span> <span className=''>BNB</span> <span className=''>= 22600</span> <span className=''>$BFROG</span>
             </div>
 
           </div>
@@ -111,7 +114,7 @@ function App() {
               {mytokens}
             </div>
             <div>
-              $MOC
+              $BFROG
 
             </div>
 
@@ -149,7 +152,7 @@ function App() {
               />
             </div>
             <div>
-              BNB
+              $BNB
 
             </div>
 
@@ -193,17 +196,22 @@ function App() {
       <div className='flex flex-row bg-black py-10 justify-between'>
         <div className='flex flex-col'>
           <div className='text-white md:text-5xl text-3xl font-black'>
-            META OF CLASH
+          BILLIONAIRE FROG
           </div>
-          <div className='font-black text-yellow-500'>
-            METERVARSE PROJECT
+          <div className='font-black text-pink-500'>
+            POWERED BY PINKSALE
           </div>
 
         </div>
-        <div>
+        <div className='flex flex-row mr-3'>
+          <img src={Image3} className="h-12" />
+          <img src={Image2} className="h-12" />
+          <img src={Image1} className="h-12" />
+          
 
         </div>
       </div>
+
 
       
      
